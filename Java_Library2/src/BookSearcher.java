@@ -2,36 +2,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookSearcher {
-    private final BookStorage Storage;
 
-    public BookSearcher(BookStorage Storage) {
-        this.Storage = Storage;
+    private final BookStorage storage;
+
+    public BookSearcher(BookStorage storage) {
+        this.storage = storage;
     }
 
-    public List<Book> searchBook(String title, String author,
-                                 String callNumber) {
+    public List<Book> searchByTitle(String title) {
         List<Book> result = new ArrayList<>();
 
-        for (Book book : Storage.getBooks()) {//BookStorage에서 책들의 리스트를 반환
-            if (title != null && title.isBlank()) {//제목 비교
-                if (book.getTitle() == null ||
-                        !book.getTitle().toLowerCase().contains(title.toLowerCase())) {//사용자에게 받은 문자열을 모두 소문자로 변환
-                    continue;//조건 불일치 시 다음 조건으로 이동
-                }
+        if (title == null || title.trim().isEmpty()) return result;
+
+        for (Book book : storage.getBooks()) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                result.add(book);
             }
-            if (author != null && !author.isBlank()) {//저자 비교
-                if (book.getAuthor() == null ||
-                        !book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
-                    continue;
-                }
+        }
+        return result;
+    }
+
+    public List<Book> recommendByCollege(String college) {
+        List<Book> result = new ArrayList<>();
+
+        String targetCategory = switch (college) {
+            case "공과대학" -> "기술과학";
+            case "인문사회대학" -> "철학";
+            case "자연과학대학" -> "과학";
+            case "예술대학" -> "예술";
+            case "경상대학" -> "경영";
+            case "보건의료과학대학" -> "의학";
+            case "AI·SW융합대학" -> "기술과학";
+            default -> ""; // 선택 안 했을 경우
+        };
+
+        for (Book book : storage.getBooks()) {
+            if (book.getCategory().contains(targetCategory)) {
+                result.add(book);
             }
-            if (callNumber != null && !callNumber.isBlank()) {//청구 기호 비교
-                if (book.getCallNumber() == null ||
-                        !book.getCallNumber().toLowerCase().contains(callNumber.toLowerCase())) {
-                    continue;
-                }
-            }
-            result.add(book);//모든 조건 통과 시 결과 리스트에 추가
         }
         return result;
     }
