@@ -1,39 +1,25 @@
-public class BookSaver {
+public class Book {
     private final String title;
     private final String author;
-    private final String publisher;
-    private final String isbn;
     private final String callNumber;
+    private final String category;
 
-    public BookSaver(String title, String author, String publisher, String isbn, String callNumber) {
+    public Book(String title, String author, String callNumber, String category) {
         this.title = title;
         this.author = author;
-        this.publisher = publisher;
-        this.isbn = isbn;
         this.callNumber = callNumber;
+        this.category = category;
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public String getAuthor() {
-        return author;
-    }
-    public String getPublisher() {
-        return publisher;
-    }
-    public String getISBN() {
-        return isbn;
-    }
-    public String getCallNumber() {
-        return callNumber;
-    }
+
+    public String getTitle() {return title;}
+    public String getAuthor() {return author;}
+    public String getCallNumber() {return callNumber;}
+    public String getCategory() {return category;}
 
     @Override
     public String toString() {
-        return "[도서명] " + title + "| [저자] " + author +  "| [출판사] "  + publisher +
-                "| [ISBN]"+ isbn + "| [청구 기호] " +  callNumber;
+        return "[도서명] " + title + " | [저자] " + author + "| [청구 기호] "
+                +  callNumber + "| [카테고리]" + category;
     }
-
-
 }
