@@ -15,7 +15,7 @@ public class BookSearcher {
         if (title == null || title.trim().isEmpty()) return result;
 
         for (Book book : storage.getBooks()) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
                 result.add(book);
             }
         }
@@ -27,14 +27,16 @@ public class BookSearcher {
 
         String targetCategory = switch (college) {
             case "공과대학" -> "기술과학";
-            case "인문사회대학" -> "철학";
-            case "자연과학대학" -> "과학";
+            case "인문사회대학" -> "철학";            // 단과대학 : 경상대학, 인문사회대학, 공과대학, 자연과학대학, 예쑬대학, 보건의료과학대학, AI·SW융합대학
+            case "자연과학대학" -> "자연";            // 카테고리 : 철학, 종교, 사회과학, 자연과학, 기술과학, 예술, 어학, 문학, 역사
             case "예술대학" -> "예술";
             case "경상대학" -> "경영";
             case "보건의료과학대학" -> "의학";
             case "AI·SW융합대학" -> "기술과학";
-            default -> ""; // 선택 안 했을 경우
+            default -> "";
         };
+
+        if (targetCategory.isEmpty()) return result;
 
         for (Book book : storage.getBooks()) {
             if (book.getCategory().contains(targetCategory)) {
