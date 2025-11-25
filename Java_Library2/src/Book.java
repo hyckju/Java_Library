@@ -1,16 +1,18 @@
-public class BookSaver {
+public class Book {
     private final String title;
     private final String author;
     private final String publisher;
     private final String isbn;
     private final String callNumber;
+    private final String category;
 
-    public BookSaver(String title, String author, String publisher, String isbn, String callNumber) {
+    public Book(String title, String author, String publisher, String isbn, String callNumber, String category) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
         this.isbn = isbn;
         this.callNumber = callNumber;
+        this.category = category;
     }
 
     public String getTitle() {
@@ -24,6 +26,9 @@ public class BookSaver {
     }
     public String getISBN() {
         return isbn;
+    }
+    public String getCategory() {
+        return category;
     }
     public String getCallNumber() {
         return callNumber;
