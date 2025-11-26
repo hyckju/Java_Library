@@ -1,13 +1,11 @@
 public class Book {
-
     private final String title;
     private final String author;
     private final String publisher;
     private final String callNumber;
     private final String category;
 
-    public Book(String title, String author, String publisher,
-                String callNumber, String category) {
+    public Book(String title, String author, String publisher, String callNumber, String category) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
