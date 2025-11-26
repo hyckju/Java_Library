@@ -26,19 +26,16 @@ public class BookAdder {
         System.out.print("청구기호: ");
         String callNumber = sc.nextLine();
 
-        System.out.print("isbn: ");
-        String isbn = sc.nextLine();
-
         System.out.print("카테고리: ");
         String category = sc.nextLine();
 
         // 입력값 검증 및 저장
-        if (title.isBlank() || author.isBlank() || callNumber.isBlank() || isbn.isBlank() || category.isBlank()) {
+        if (title.isBlank() || author.isBlank() || callNumber.isBlank() || category.isBlank()) {
             System.out.println("[오류] 모든 항목은 반드시 입력해야 합니다.");
             return;
         }
 
-        Book newBook = new Book(title, author, publisher, callNumber, isbn, category);
+        Book newBook = new Book(title, author, publisher, callNumber, category);
         storage.addBook(newBook);
 
         System.out.println("✔ 신규 도서 등록 완료!");
