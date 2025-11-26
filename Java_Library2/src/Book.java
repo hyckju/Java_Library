@@ -34,6 +34,4 @@ public class Book {
         return "[도서명] " + title + "| [저자] " + author +  "| [출판사] "  + publisher +
                 "| [청구 기호] " +  callNumber;
     }
-
-
 }

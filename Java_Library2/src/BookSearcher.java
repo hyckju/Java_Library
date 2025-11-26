@@ -15,8 +15,8 @@ public class BookSearcher {
         for (Book book : Storage.getBooks()) {//BookStorage에서 책들의 리스트를 반환
             if (title != null && title.isBlank()) {//제목 비교
                 if (book.getTitle() == null ||
-                        !book.getTitle().toLowerCase().contains(title.toLowerCase())) {
-                    continue;//제목 조건 불일치 다음 조건으로 이동
+                        !book.getTitle().toLowerCase().contains(title.toLowerCase())) {//사용자에게 받은 문자열을 모두 소문자로 변환
+                    continue;//조건 불일치 시 다음 조건으로 이동
                 }
             }
             if (author != null && !author.isBlank()) {//저자 비교
