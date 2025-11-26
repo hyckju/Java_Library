@@ -9,7 +9,7 @@ public class BookSearcher {
     }
 
     public List<Book> searchBook(String title, String author,
-                                 String callNumber) {
+                                 String callNumber, String category) {
         List<Book> result = new ArrayList<>();
 
         for (Book book : Storage.getBooks()) {//BookStorage에서 책들의 리스트를 반환

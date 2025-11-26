@@ -20,9 +20,6 @@ public class BookAdder {
         System.out.print("저자: ");
         String author = sc.nextLine();
 
-        System.out.print("출판사: ");
-        String publisher = sc.nextLine();
-
         System.out.print("청구기호: ");
         String callNumber = sc.nextLine();
 
@@ -35,7 +32,7 @@ public class BookAdder {
             return;
         }
 
-        Book newBook = new Book(title, author, publisher, callNumber, category);
+        Book newBook = new Book(title, author, callNumber, category);
         storage.addBook(newBook);
 
         System.out.println("✔ 신규 도서 등록 완료!");

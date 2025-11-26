@@ -34,7 +34,7 @@ public class Main {
                 String callNumber = sc.nextLine();
 
                 List<Book> results;
-                results = searcher.searchBook(title, author, callNumber);
+                results = searcher.searchBook(title, author, callNumber, category);
 
                 System.out.println("\n----------------------------");
                 if (results.isEmpty()) {
