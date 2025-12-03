@@ -1,11 +1,13 @@
 public class Book {
+
     private final String title;
     private final String author;
     private final String publisher;
     private final String isbn;
     private final String category;
 
-    public Book(String title, String author, String publisher, String isbn, String category) {
+    public Book(String title, String author, String publisher,
+                String isbn, String category) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -27,8 +29,8 @@ public class Book {
                 "도서명 : " + title + "\n" +
                 "저  자 : " + author + "\n" +
                 "출판사 : " + publisher + "\n" +
-                "isbn : " + isbn + "\n" +
-                "카테고리 : " + category + "\n" +
+                "I S B N : " + isbn + "\n" +
+                "카테고리1 : " + category + "\n" +
                 "--------------------------------------";
     }
 }
