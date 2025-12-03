@@ -108,6 +108,7 @@ public class Main {
                     }
                 }
                 case "3" -> {
+
                     System.out.println("카테고리 : 철학, 종교, 사회과학, 자연과학, 기술과학, 예술, 어학, 문학, 역사"); //카테고리 보기
                     System.out.print("도서명: ");
                     String title = sc.nextLine();
