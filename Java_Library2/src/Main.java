@@ -8,6 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         BookStorage storage = new BookStorage();
         BookSearcher searcher = new BookSearcher(storage);
+        BookAdder adder = new BookAdder(storage);
 
         storage.sampleBooks();
 
@@ -68,6 +69,7 @@ public class Main {
                         }
 
                         if (!college.isEmpty()) break;
+
                     }
 
                     List<Book> results = searcher.recommendByCollege(college);
@@ -108,24 +110,7 @@ public class Main {
                     }
                 }
                 case "3" -> {
-                    System.out.println("카테고리 : 철학, 종교, 사회과학, 자연과학, 기술과학, 예술, 어학, 문학, 역사"); //카테고리 보기
-                    System.out.print("도서명: ");
-                    String title = sc.nextLine();
-
-                    System.out.print("저자: ");
-                    String author = sc.nextLine();
-
-                    System.out.print("출판사: ");
-                    String publisher = sc.nextLine();
-
-                    System.out.print("청구기호: ");
-                    String callNumber = sc.nextLine();
-
-                    System.out.print("카테고리: ");
-                    String category = sc.nextLine();
-
-                    storage.addBook(new Book(title, author, publisher, callNumber, category));
-                    System.out.println("도서가 저장되었습니다.");
+                    adder.addBookFromConsole();
                 }
 
                 case "4" -> {
