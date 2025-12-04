@@ -25,6 +25,7 @@ public class BookSearcher {
     public List<Book> recommendByCollege(String college) {
         List<Book> result = new ArrayList<>();
 
+        // 단과대학별 카테고리 지정
         String targetCategory = switch (college) {
             case "공과대학", "AI·SW융합대학" -> "기술과학";
             case "인문사회대학" -> "철학";
