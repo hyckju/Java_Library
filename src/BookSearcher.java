@@ -63,7 +63,7 @@ public class BookSearcher {
 
         if (cleaned.isEmpty()) return categories;
 
-        String[] parts = cleaned.split("[\\|/,]\\s*|⁄|/", -1);
+        String[] parts = cleaned.split("[|/,]\\s*|⁄|/", -1);
 
         for (String part : parts) {
             String candidate = part.trim();
